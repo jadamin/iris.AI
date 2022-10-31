@@ -43,4 +43,4 @@ if st.button('valider'):
     st.success (model.predict([[sepal_lengthst,sepal_width,petal_length,petal_width]]))
     st.pyplot(sns.pairplot(df_2, hue="species"))
 
-test = model.predict([[sepal_lengthst,sepal_width,petal_length,petal_width]])
+
