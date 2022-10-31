@@ -25,14 +25,14 @@ print('train score:', model.score (X_test,y_test))
 sns.set_theme(style="ticks")
 sns.pairplot(df, hue="species")
 
-sepal_lengthst = st.slider('sepal_length', min_value=0.00, max_value=8.00)
-sepal_width    = st.slider('sepal_width' , min_value=0.00, max_value=5.00)
-petal_length   = st.slider('petal_length', min_value=0.00, max_value=8.00)
-petal_width    = st.slider('petal_width' , min_value=0.00, max_value=3.00)
+sepal_length = st.slider('sepal_length', min_value=0.00, max_value=8.00)
+sepal_width  = st.slider('sepal_width' , min_value=0.00, max_value=5.00)
+petal_length = st.slider('petal_length', min_value=0.00, max_value=8.00)
+petal_width  = st.slider('petal_width' , min_value=0.00, max_value=3.00)
 
 if st.button('valider'):
     point_en_cours = {
-        'sepal_length': [sepal_lengthst],	
+        'sepal_length': [sepal_length],	
         "sepal_width" : [sepal_width],
         "petal_length" : [ petal_length],	
         "petal_width": [petal_width],
@@ -40,7 +40,7 @@ if st.button('valider'):
         }
     point_en_cours = pd.DataFrame(point_en_cours)
     df_2 = pd.concat([point_en_cours, df])
-    st.success (model.predict([[sepal_lengthst,sepal_width,petal_length,petal_width]]))
+    st.success (model.predict([[sepal_length,sepal_width,petal_length,petal_width]]))
     st.pyplot(sns.pairplot(df_2, hue="species"))
 
 
