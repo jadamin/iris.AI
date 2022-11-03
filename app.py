@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
-from streamlit.elements.button import ButtonSerde
+
 
 df = pd.read_csv("irisdata.csv")
 
@@ -18,7 +18,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y ,test_size=0.2, random_
 print('train set :' , X_train.shape)
 print( 'test set :' , X_test.shape)
 
-model = KNeighborsClassifier(n_neighbors=5)
+model = KNeighborsClassifier(n_neighbors=11)
 model.fit(X_train,y_train)
 print('train score:', model.score (X_test,y_test))
 
@@ -42,5 +42,3 @@ if st.button('valider'):
     df_2 = pd.concat([point_en_cours, df])
     st.success (model.predict([[sepal_length,sepal_width,petal_length,petal_width]]))
     st.pyplot(sns.pairplot(df_2, hue="species"))
-
-
